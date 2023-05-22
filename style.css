@@ -1,4 +1,4 @@
-.fade {
+.fade { 
     -webkit-animation-name: fade;
     animation-name: fade;
     -webkit-animation-duration: 2.5s;
