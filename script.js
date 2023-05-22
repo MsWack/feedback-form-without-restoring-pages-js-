@@ -1,39 +1,39 @@
 window.addEventListener("DOMContentLoaded", () => {
     // ФОРМА ОБРАТНОЙ СВЯЗИ БЕЗ ПЕРЕЗАГРУЗКИ СТРАНИЦЫ
 
-    // создаем сообщения для пользователя, которые будут отображаться при различном исходе отправки формы
-    const message = {
+    // сообщения для пользователя
+    let message = {
         loading: "Загрузка...",
         success: "Спасибо! Скоро мы с вами свяжемся!",
         failure: "Что-то пошло не так...",
     };
 
     // получаем саму форму обратной связи
-    const form = document.querySelector(".main-form");
+    let form = document.querySelector(".main-form");
     // получаем все интупты из этой формы
-    const input = form.getElementsByTagName("input");
-    // создаем новый элемент, который будет выводить сообщение пользователю о статусе отправки формы
-    const statusMessage = document.createElement("div");
+    let input = form.getElementsByTagName("input");
+    // создаем новый элемент div
+    let statusMessage = document.createElement("div");
 
-    // присваиваем переменной statusMessage класс "status", стили для которого заранее определили в css
+    // присваиваем переменной statusMessage класс "status"
     statusMessage.classList.add("status");
 
-    // при отправке формы на сервер (обработчик submit необходимо навершивать именно на форму, а не на кнопку)
+    // при отправке формы на сервер 
     form.addEventListener("submit", (event) => {
-        // отменяем стандартное поведение браузера, когда страница перезагружается при отправки формы
+        // отменяем стандартное поведение браузера
         event.preventDefault();
-        // добавляем в форму созданный выше div, который будет оповещать пользователя о статусе отправки формы
+        // добавляем в форму созданный выше div
         form.appendChild(statusMessage);
 
-        // создаем объект XMLHttpRequest - это встроенный в браузер объект, который даёт возможность делать HTTP-запросы к серверу без перезагрузки страницы.
-        const request = new XMLHttpRequest();
-        // настраиваем запрос: POST-запрос по URL server.php
+        // создаем объект XMLHttpRequest
+        let request = new XMLHttpRequest();
+        // настраиваем запрос
         request.open("POST", "server.php");
         // устанавливаем заголовок запроса: setRequestHeader(name, value)
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         // создаем новую перемеенную в которую помещаем все, что заполнил пользователь через FormData()
-        const formData = new FormData(form);
-        // отсылаем запрос c телом formData, то есть с теми данными, которые ввел пользователь
+        let formData = new FormData(form);
+        // отсылаем запрос
         request.send(formData);
 
         // отслеживаем измнения состояния запроса
