@@ -44,7 +44,6 @@ JS-код для отправки формы обратно связи без п
     request.send(json).
 
 В итоге должно полуиться так:
-...
     request.setRequestHeader("Content-type", "application/json; charset=utf-8");
     
     let formData = new FormData(form);
@@ -55,4 +54,3 @@ JS-код для отправки формы обратно связи без п
     });
     let json = JSON.stringify(obj);
     request.send(json);
-...
