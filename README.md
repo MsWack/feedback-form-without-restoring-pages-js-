@@ -1,5 +1,5 @@
-# feedback-form-without-restoring-pages-js-
-JS-код для отправки формы обратно связи без перезагрузки страницы.
+### feedback-form-without-restoring-pages-js-
+# JS-код для отправки формы обратной связи без перезагрузки страницы.
 
 1. При необходимости создаем сообщения для пользователя, которые будут отображаться при различном исходе отправки формы.
 
@@ -36,13 +36,13 @@ JS-код для отправки формы обратно связи без п
     
 2. данные, которые получаем из формы преобразовать в json-формат, после создаем промежуточный пустой объект и заполняем его данными из formData с помощью цикла forEach:
 
-                let formData = new FormData(form);
-                
-                let obj = {}; 
-                
-                formData.forEach(function (value, key) {
-                        obj[key] = value;
-                });
+        let formData = new FormData(form);
+
+        let obj = {}; 
+
+        formData.forEach(function (value, key) {
+                obj[key] = value;
+        });
     
 3. Объект JavaScript (obj) трансформируем в строку JSON: 
 
@@ -52,7 +52,7 @@ JS-код для отправки формы обратно связи без п
 
         request.send(json).
 
-В итоге должно полуиться так:
+В итоге должно получиться так:
 
     request.setRequestHeader("Content-type", "application/json; charset=utf-8");
     
