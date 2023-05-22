@@ -29,23 +29,31 @@ JS-код для отправки формы обратно связи без п
 
 Сейчас данные отправляются в обычном формате. Если мы хотим отправлять данные в формате JSON, то необходимо:
 1. Поменять заголовок заспроса на:
+
     request.setRequestHeader("Content-type", "application/json; charset=utf-8").
+    
 2. данные, которые получаем из формы преобразовать в json-формат: после 
+
     let formData = new FormData(form);
+    
 создаем промежуточный пустой объект 
+
     let obj = {}; 
 и заполняем его данными из formData с помощью цикла forEach:
+
     formData.forEach(function (value, key) {
         obj[key] = value;
     });
 3. Объект JavaScript (obj) трансформируем в строку JSON: 
+
     let json = JSON.stringify(obj);.
 4. Зменяем тело запроса на:
+
     request.send(json).
 
 В итоге должно полуиться так:
-    request.setRequestHeader("Content-type", "application/json; charset=utf-8");
-    
+
+    request.setRequestHeader("Content-type", "application/json; charset=utf-8");   
     let formData = new FormData(form);
     let obj = {};
 
