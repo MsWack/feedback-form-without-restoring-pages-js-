@@ -70,6 +70,7 @@ feedback-form-without-restoring-pages-js-
 ---
 
 Если необходимо подключить скрипт отправки данных с формы к нескольким формам, можно создать функцию, которая будет принимать форму в качестве аргумента и применять обработчик события "submit" к этой форме. Например:
+    
     function setupFormSubmission(form) {
     let input = form.getElementsByTagName("input"),
         statusMessage = document.createElement("div");
